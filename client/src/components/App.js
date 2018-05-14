@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Switch, Route, withRouter, Link} from 'react-router-dom'
+import { connect } from 'react-redux'
 import logo from './logo.svg';
 import './App.css';
 import APITest from './APITest'
@@ -33,10 +35,12 @@ class App extends Component {
         <p className="App-intro">
           {this.state.response} | Hello from React
         </p>
-        <APITest/>
+        <Switch>
+          <Route exact path='/' component={APITest} />
+        </Switch>
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(connect()(App));

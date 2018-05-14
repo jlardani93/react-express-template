@@ -5,14 +5,18 @@ import App from './components/App';
 import { AppContainer } from 'react-hot-loader'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import hunkMIddleware from 'redux-thunk'
 import registerServiceWorker from './registerServiceWorker';
 import { HashRouter } from 'react-router-dom';
+import middlewareLogger from './middleware/middleware-logger'
+import thunkMiddleware from 'redux-thunk'
+import rootReducer from './reducers'
+
+const store = createStore(rootReducer, applyMiddleware(middlewareLogger, thunkMiddleware))
 
 const render = (Component) => {
   ReactDOM.render(
     <HashRouter>
-      <Provider store={null}>
+      <Provider store={store}>
         <Component/>
       </Provider>
     </HashRouter>,

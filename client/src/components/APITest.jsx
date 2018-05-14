@@ -33,7 +33,6 @@ export default class APITest extends React.Component{
       req.onload = () => resolve(req.response);
       req.send(null);
     })
-
     promise.then(res => console.log("Database Response", JSON.parse(res)));
   }
 
