@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import APITest from './APITest'
 
 class App extends Component {
   state = {
@@ -32,6 +33,7 @@ class App extends Component {
         <p className="App-intro">
           {this.state.response} | Hello from React
         </p>
+        <APITest/>
       </div>
     );
   }
